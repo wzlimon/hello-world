@@ -16,3 +16,6 @@
 继续学习GIT，怎么上传更新
 test for pycharm
 test
+
+用pycharm 直接PUSH失败，还是得用代码操作。
+
