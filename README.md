@@ -52,6 +52,7 @@ git merge dev
 git status
 
 # 推送
-git push origin master```
+git push origin master
+```
 
 测试一下。
