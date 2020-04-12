@@ -37,3 +37,21 @@ test
 一个问题：修改不同步的错误怎么办？
 
 DEV下的修改。看能不能影响到别的分支。
+
+在写项目的时候习惯创建一个dev分支用于更新代码，等到整个或者阶段性完成的时候再合并到master上
+
+步骤如下
+
+```# 切换到master分支
+git checkout master
+
+# 将dev分支的代合并到master
+git merge dev
+
+# 查看状态
+git status
+
+# 推送
+git push origin master```
+
+测试一下。
