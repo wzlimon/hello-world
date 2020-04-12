@@ -25,3 +25,5 @@ test
 2020年4月12日
 通过手机修改测试。
 
+学习FLASK是从 http://www.helloflask.com 的《[Flask 入门教程](http://www.helloflask.com/tutorial/)》开始的，感谢 [@greyli](https://github.com/greyli)
+ 
