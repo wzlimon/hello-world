@@ -65,7 +65,8 @@ pycharm 用图标方式提交PUSH还是不行，需要通过代码来完成推�
 
 头像图标的`含义`。
 ---
-![图标](https://avatars2.githubusercontent.com/u/5779821?s=460&u=a95ead438ee88b4cc7af6b926850b3aeaa7a4345&v=4)
+![图标](http://www.cnun.com/images/Li-LOGO-V.png)
 
-`L`:LIMON的首字母，右上角是引用语言的图标，代表社交。
+`L`:LIMON的首字母，`i`:右上角是引用语言的图标，代表社交。
+
 
