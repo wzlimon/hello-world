@@ -65,8 +65,18 @@ pycharm 用图标方式提交PUSH还是不行，需要通过代码来完成推�
 
 头像图标的`含义`。
 ---
-![图标](http://www.cnun.com/images/Li-LOGO-V.png)
+![图标](http://www.cnun.com/images/LI-LOGO-V-40.png)
 
 `L`:LIMON的首字母，`i`:右上角是引用语言的图标，代表社交。
 
+    **近期学习的内容有：**
+    * python 基础知识，正则运算符，数据库操作，爬虫编程
+    * flask 基础知识，简单网页制作，数据库记录展示，翻页显示
+    * CSS 基础知识复习和应用
+    * Bootstrap 的基本应用
+    * MSSQLSERVER 数据库导出转为 MYSQL格式
+    * ASP网站改为PHP语言
+    * 钉钉群聊机器人代码学习
 
+
+    
