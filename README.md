@@ -58,4 +58,7 @@ git push origin master
 测试一下。
 # 2020-4-13，办公室
 test from office room.
+
 测试通过SSH来更新GIT。
+
+pycharm 用图标方式提交PUSH还是不行，需要通过代码来完成推送。
