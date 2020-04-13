@@ -56,5 +56,6 @@ git push origin master
 ```
 
 测试一下。
-
+# 2020-4-13，办公室
 test from office room.
+测试通过SSH来更新GIT。
