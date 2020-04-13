@@ -100,3 +100,5 @@ git push --set-upstream origin html
 网上已经有了
 
 切换回MASTER，MERGE CHANGES后，再上传。
+
+通过本地VCS同样可以删除运程的分支。
