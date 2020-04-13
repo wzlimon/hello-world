@@ -78,18 +78,15 @@ pycharm 用图标方式提交PUSH还是不行，需要通过代码来完成推�
     * ASP网站改为PHP语言
     * 钉钉群聊机器人代码学习
 
-收藏一篇[GIT教程](https://www.liaoxuefeng.com/wiki/896043488029600) 
+* 收藏一篇[GIT教程](https://www.liaoxuefeng.com/wiki/896043488029600) 
 
-继续复习，[设置SSH](https://www.jianshu.com/p/3f4b2ede5a93)
+* 继续复习，[设置SSH](https://www.jianshu.com/p/3f4b2ede5a93)
 
-继续保存。   
+* 继续保存。   
 
-再试一下分支。 
+    * 再试一下分支。 看一下MASTER分支。
+    * 测试分支冲突解决方法。成功。
+    * 测试了一下分支的关闭。
 
-看一下MASTER分支
+* 改为SSH模式 GIT Remotes ，免得每次更新要输入密码。
 
-测试分支冲突解决方法。
-
-测试了一下分支的关闭。
-
-改为SSH模式 GIT Remotes
