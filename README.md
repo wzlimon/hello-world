@@ -98,3 +98,5 @@ pycharm 用图标方式提交PUSH还是不行，需要通过代码来完成推�
 git push --set-upstream origin html
 ```
 网上已经有了
+
+切换回MASTER，MERGE CHANGES后，再上传。
