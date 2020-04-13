@@ -90,3 +90,11 @@ pycharm 用图标方式提交PUSH还是不行，需要通过代码来完成推�
 
 * 改为SSH模式 GIT Remotes ，免得每次更新要输入密码。
 
+### 新建分支
+
+建立一个分支HTML，新建一个INDEX.HTML文件，上传
+
+```
+git push --set-upstream origin html
+```
+网上已经有了
