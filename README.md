@@ -107,3 +107,4 @@ git push --set-upstream origin html
 
 生产系统数据库转换导出成功。
 
+学习FASTADMIN看插件设计手册。 https://doc.fastadmin.net/developer/56.html 
