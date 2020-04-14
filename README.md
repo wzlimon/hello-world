@@ -102,3 +102,8 @@ git push --set-upstream origin html
 切换回MASTER，MERGE CHANGES后，再上传。
 
 通过本地VCS同样可以删除运程的分支。
+
+# 2020-04-14
+
+生产系统数据库转换导出成功。
+
