@@ -116,3 +116,8 @@ git push --set-upstream origin html
 # 2020-04-18
 
 修改生产系统数据结构。优化数据机构。
+
+```
+3、在任意表单页面添加如下代码，实现多选列表
+<input id="c-category_ids" data-rule="" data-source="category/selectpage" data-params='{"custom[type]":"bm","isTree":1}' data-multiple="true" class="form-control selectpage" name="category_ids" type="text" value="{$row['category_ids']|htmlentities}">
+```
