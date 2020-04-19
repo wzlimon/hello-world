@@ -121,3 +121,20 @@ git push --set-upstream origin html
 3、在任意表单页面添加如下代码，实现多选列表
 <input id="c-category_ids" data-rule="" data-source="category/selectpage" data-params='{"custom[type]":"bm","isTree":1}' data-multiple="true" class="form-control selectpage" name="category_ids" type="text" value="{$row['category_ids']|htmlentities}">
 ```
+
+数据限制
+在后台开发的过程中经常会有这样的一个需求，每个管理员单独管理自己添加的数据或单独管理自己下级管理员添加的数据，管理员之间的数据是不相通的，每个管理员看到的数据是不同的。在FastAdmin中可以很方便的实现此功能。
+
+首先我们需要在当前控制器添加以下两个属性
+```
+protected $dataLimit = 'auth'; //默认基类中为false，表示不启用，可额外使用auth和personal两个值
+protected $dataLimitField = 'admin_id'; //数据关联字段,当前控制器对应的模型表中必须存在该字段
+
+$dataLimit = false; //表示不启用，显示所有数据
+$dataLimit = 'auth'; //表示显示当前自己和所有子级管理员的所有数据
+$dataLimit = 'personal'; //表示仅显示当前自己的数据
+$dataLimitField字段默认为admin_id，请注意添加该字段类型为int(10)。
+```
+通过以上配置后，在列表加载数据的时候将默认添加条件过滤不属于自己权限的数据，同时在添加时会自动维护admin_id的数据，在编辑、删除的时候会自动控制权限避免越权操作。
+
+如果需要将原有的数据加入到FastAdmin后台管理权限控制当中，比如已有的数据已经有标识归属，但这个归属体系并非是FastAdmin的后台管理员体系。在这个时候我们就需要重写基类的getDataLimitAdminIds方法，将此方法返回数据标识的归属ID数组集合，这样即可使用FastAdmin的后台管理权限进行管理。
