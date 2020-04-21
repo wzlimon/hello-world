@@ -138,3 +138,31 @@ $dataLimitField字段默认为admin_id，请注意添加该字段类型为int(10
 通过以上配置后，在列表加载数据的时候将默认添加条件过滤不属于自己权限的数据，同时在添加时会自动维护admin_id的数据，在编辑、删除的时候会自动控制权限避免越权操作。
 
 如果需要将原有的数据加入到FastAdmin后台管理权限控制当中，比如已有的数据已经有标识归属，但这个归属体系并非是FastAdmin的后台管理员体系。在这个时候我们就需要重写基类的getDataLimitAdminIds方法，将此方法返回数据标识的归属ID数组集合，这样即可使用FastAdmin的后台管理权限进行管理。
+
+# 2020－04－21
+
+注册了一台阿里云服务器
+关于FASTADMIN数据导入，有这样一个设置
+
+```
+1. 在你的控制器中继承import方法，如下
+
+public function import(){
+        return parent::import();
+}
+在index.html中的build_toolbar方法添加import，如下
+{:build_toolbar('refresh,add,edit,del,import')}
+在模块对应的JS中添加import_url，如下
+Table.api.init({
+                extend: {
+                    index_url: 'example/index',
+                    add_url: 'example/add',
+                    edit_url: 'example/edit',
+                    del_url: 'example/del',
+                    import_url: 'example/import',
+                    multi_url: 'example/multi',
+                    dragsort_url: '',
+                    table: 'category',
+                }
+});
+```
