@@ -195,3 +195,16 @@ MYSQL多表连接更新比较方便。
 ```
 data-source="yjgxhttz/index"  data-field="htmc"
 ```
+# 2020-04-30 
+解决了详情页关联查询显示信息的问题，采取卡片式多页显示方便展示。图片显示功能未知。
+```
+    public function detail($ids)
+    {
+        $row = $this->model->where(['id' => $ids])->find();
+        if (!$row)
+            $this->error(__('No Results were found'));
+        $this->view->assign("row", $row);
+        $this->view->assign("row2", $row['admin']);
+        return $this->view->fetch();
+    }
+```
