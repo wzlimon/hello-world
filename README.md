@@ -208,3 +208,50 @@ data-source="yjgxhttz/index"  data-field="htmc"
         return $this->view->fetch();
     }
 ```
+# 2020-05-04
+解决了自动编号中的一些问题
+
+```
+    /**
+    *自动填写资产编号
+    **/
+    public function zcbhpicker($categoryid=null){
+        $this->relationSearch = true;
+        $newzcbh='';
+        $list = $this->model
+                ->with('category')
+                ->where(['category_id' => $categoryid])
+                ->order(['zcbh'],['desc'])
+                ->field(['zcbh'])
+                ->select();
+
+        if (!$list){
+            $this->model = model('Category');
+            $row = $this->model->where(['id' => $categoryid])->find();
+            $newzcbh='GTZC-'. $row['keywords'] . Date('Y') . '00001';
+        }else{
+            foreach ($list as $row) {
+				$row->getRelation('category')->visible(['keywords']);
+            }
+            $list = collection($list)->toArray();
+            foreach ($list as $row){
+            $tmpzcbh=$row['zcbh'];
+            break;
+            }
+            $tmpzcbh1=substr($tmpzcbh,0,9);
+            $tmpzcbh2=substr($tmpzcbh,10,4);
+            if ($tmpzcbh2 < Date('Y')){
+                $newzcbh=$tmpzcbh1.Date('Y').'00001';
+            }else{
+                $tmpzcbh3=substr($tmpzcbh,15,5);
+                $i=intval($stmpzcbh3);
+                $i=$i+1;
+                $tmpzcbh4=substr(str_repeat("0",5).$i,-5,5);
+                $newzcbh=$tempzcbh1.Date('Y').$tempzcbh4;
+            }
+        }
+        $this->success("", null, ['czcbh' => $newzcbh]);
+        return ;
+    }
+
+```
