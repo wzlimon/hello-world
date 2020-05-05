@@ -255,3 +255,13 @@ data-source="yjgxhttz/index"  data-field="htmc"
     }
 
 ```
+# 2020-05-05
+单位、地块、房产、资产、客户、合同、收款共七张表格的录入流程调试基本完成。
+因FASTADMIN的局限，学习还未深入，暂时无法实现三表关系。暂时通过反向更新方式来确保一对一的关系 。
+'''
+                    if ($params['status'] =='1') {
+                    $res = Db::name('yjgxzctz')->where('id',$params['yjgxzctz_id'])->setField(['yjgxhttz_id'=>$ids,'yjgxkhtz_id'=>$params['yjgxkhtz_id'],'status'=>$params['status']]);
+                    $this->success();
+                    }
+
+```
