@@ -269,3 +269,4 @@ data-source="yjgxhttz/index"  data-field="htmc"
 ```
 # 2020-5-10
 简单的JS联动难倒了。
+提取当前ID =>$this->model->id
