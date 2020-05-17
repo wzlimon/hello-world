@@ -270,3 +270,62 @@ data-source="yjgxhttz/index"  data-field="htmc"
 # 2020-5-10
 简单的JS联动难倒了。
 提取当前ID =>$this->model->id
+
+# 2020-05-17
+解决了GROUP统计问题
+
+```
+            list($where, $sort, $order, $offset, $limit) = $this->buildparams();
+            $total = $this->model
+                    ->with(['admin','category'])
+                    ->where($where)
+                    ->order($sort, $order)
+                    ->count();
+            $subsql = Db::name('yjgxhttz')->field('yjgxkhtz_id,count(CASE WHEN status="1" THEN 1 ELSE NULL END)  count')->group('yjgxkhtz_id')->buildSql();
+
+            $list = $this->model
+                    ->with(['admin','category'])
+                    ->join([$subsql=> 'w'], 'yjgxkhtz.id = w.yjgxkhtz_id','left')
+                    ->field('w.count as count)
+                    ->where($where)
+                    //->group('id')
+                    ->order($sort, $order)
+                    ->limit($offset, $limit)
+                    ->select();
+
+            foreach ($list as $row) {
+                $row->visible(['id','zllb','zcbh','name','address','area','type','status','about','images','landid','houseid','yjgxhttz_id','yjgxkhtz_id','category_id','count']);
+                $row->getRelation('admin')->visible(['nickname']);
+				$row->getRelation('category')->visible(['nickname']);
+
+            }
+            $list = collection($list)->toArray();
+            $result = array("total" => $total, "rows" => $list);
+
+            return json($result);
+        }
+        return $this->view->fetch();
+```
+
+
+另，数据结果导出代码
+
+```
+SELECT
+COLUMN_NAME 列名,
+COLUMN_TYPE 数据类型,
+DATA_TYPE 字段类型,
+CHARACTER_MAXIMUM_LENGTH 长度,
+IS_NULLABLE 是否为空,
+COLUMN_DEFAULT 默认值,
+COLUMN_COMMENT 备注
+FROM
+INFORMATION_SCHEMA.COLUMNS
+where
+-- developerclub为数据库名称，到时候只需要修改成你要导出表结构的数据库即可
+table_schema ='developerclub'
+AND
+-- article为表名，到时候换成你要导出的表的名称
+-- 如果不写的话，默认会查询出所有表中的数据，这样可能就分不清到底哪些字段是哪张表中的了，所以还是建议写上要导出的名名称
+table_name = 'article'
+```
