@@ -333,3 +333,10 @@ table_name = 'article'
 今天推出新代码测试，发放用户账号。
 数据导入，时间格式需要修改为2020-05-18格式。
 准备编写教程。
+
+# 2020-05-21
+合并多条为一条
+
+```
+update fa_yjgxzctz a,  (SELECT YWBH, group_concat(url) as urls FROM  yjgx_业务附件 GROUP BY YWBH ORDER BY YWBH ) b set a.files=b.urls where a.zcbh=b.YWBH 
+```
