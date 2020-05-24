@@ -340,3 +340,60 @@ table_name = 'article'
 ```
 update fa_yjgxzctz a,  (SELECT YWBH, group_concat(url) as urls FROM  yjgx_业务附件 GROUP BY YWBH ORDER BY YWBH ) b set a.files=b.urls where a.zcbh=b.YWBH 
 ```
+# 2020-05-24
+完成了合同自动调整状态和资产状态改变。
+进行了实时统计数据的显示，并实现了单面统计。
+
+```
+function index(){
+        //设置过滤方法
+        $this->request->filter(['strip_tags']);
+        if ($this->request->isAjax()) {
+            //如果发送的来源是Selectpage，则转发到Selectpage
+            if ($this->request->request('keyField')) {
+                return $this->selectpage();
+            }
+            list($where, $sort, $order, $offset, $limit) = $this->buildparams();
+            $total = $this->model
+                ->where($where)
+                ->order($sort, $order)
+                ->count();
+
+            $list = $this->model
+                ->where($where)
+                ->order($sort, $order)
+                ->limit($offset, $limit)
+                ->select();
+
+            $list = collection($list)->toArray();
+            $result = array("total" => $total, "rows" => $list);
+
+            //处理统计
+            if(!empty($result['rows'])){
+
+                //提取所有字段名称
+                $filed_arr = array_keys($result['rows'][0]);
+
+                //处理数据
+                $total = [];
+
+                foreach ($filed_arr as $filed_key){
+                    $total[$filed_key] = array_sum(array_column($result['rows'], $filed_key));//合计
+                }
+
+                //设置标题
+                $total['id'] = '合计';
+
+                //追加到头部
+                array_unshift($result['rows'],$total);
+//                array_unshift($result['rows'],$ratio);
+
+                //追加到尾部
+//                $result['rows'][] = $total;
+//                $result['rows'][] = $ratio;
+            }
+            
+        }
+        return $this->view->fetch();
+    }
+```
