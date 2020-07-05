@@ -413,3 +413,14 @@ function index(){
 
 # 2020-06-12
 下发通知，要求完善信息资料。合同模板在线生成电子合同试点成功。向GZ、JC等单位开放部分账号。
+
+# 2020-07-05
+数据更新一段落，重启代码更新工作。以下是预览图显示的官方代码
+
+```
+<ul class="row list-inline plupload-preview" data-template="mytpl" id="p-image"></ul>
+
+<script type="text/html" id="mytpl">
+<li class="col-xs-3"><a href="<%=fullurl%>" data-url="<%=url%>" target="_blank" class="thumbnail"><img src="<%=fullurl%>" onerror="this.src='https://tool.fastadmin.net/icon/'+'<%=fullurl%>'.split('.').pop()+'.png';this.onerror=null;" class="img-responsive"></a><a href="javascript:;" class="btn btn-danger btn-xs btn-trash"><i class="fa fa-trash"></i></a></li>
+</script>
+```
