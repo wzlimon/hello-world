@@ -424,3 +424,11 @@ function index(){
 <li class="col-xs-3"><a href="<%=fullurl%>" data-url="<%=url%>" target="_blank" class="thumbnail"><img src="<%=fullurl%>" onerror="this.src='https://tool.fastadmin.net/icon/'+'<%=fullurl%>'.split('.').pop()+'.png';this.onerror=null;" class="img-responsive"></a><a href="javascript:;" class="btn btn-danger btn-xs btn-trash"><i class="fa fa-trash"></i></a></li>
 </script>
 ```
+# 2020-7-06
+
+```
+update fa_yjgxhttz a ,fa_yjgxzctz b set a.yjgxzctz_id=b.id where a.zcbh=b.zcbh and a.id>6755 and a.category_id=16
+
+update fa_yjgxzctz a ,fa_yjgxhttz b set a.yjgxhttz_id=b.id, a.yjgxkhtz_id=b.yjgxkhtz_id where a.id=b.yjgxzctz_id and a.id>6811 and a.category_id=16
+
+```
