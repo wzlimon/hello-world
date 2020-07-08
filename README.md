@@ -432,3 +432,9 @@ update fa_yjgxhttz a ,fa_yjgxzctz b set a.yjgxzctz_id=b.id where a.zcbh=b.zcbh a
 update fa_yjgxzctz a ,fa_yjgxhttz b set a.yjgxhttz_id=b.id, a.yjgxkhtz_id=b.yjgxkhtz_id where a.id=b.yjgxzctz_id and a.id>6811 and a.category_id=16
 
 ```
+# 2020-07-08
+偶尔看到2008年写的工资系统代码，很想把这个系统升级一下。
+
+```
+nowrap="nowrap"
+```
