@@ -438,3 +438,6 @@ update fa_yjgxzctz a ,fa_yjgxhttz b set a.yjgxhttz_id=b.id, a.yjgxkhtz_id=b.yjgx
 ```
 nowrap="nowrap"
 ```
+
+# 2022-3-7
+重新拿起这些代码去看，一点都看不懂了。一年半时间忘光了。
